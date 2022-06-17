@@ -1,6 +1,5 @@
 const request = require('request');
-const dotenv = require('dotenv');
-
+const response = require('../../network/response');
 /*
 *  Metodo para obtener los datos de la API
 *  @param {Object} req
@@ -13,9 +12,9 @@ const search = (req, res) => {
         'method': 'GET',
         'url': `${process.env.API_MLIBRE}/search?q=${query}`
     };
-    request(options, (error, response) => {
+    request(options, (error, resp) => {
         if (error) throw new Error(error);
-        res.json(JSON.parse(response.body));
+        response.success(res, JSON.parse(resp.body), 200);
     });
 }
 
