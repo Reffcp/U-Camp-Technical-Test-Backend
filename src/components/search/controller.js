@@ -15,7 +15,7 @@ const search = (req, res) => {
     };
     request(options, (error, response) => {
         if (error) throw new Error(error);
-        res.json(response.body);
+        res.json(JSON.parse(response.body));
     });
 }
 
