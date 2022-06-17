@@ -11,6 +11,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+// se integra el router de la aplicacion
+const router = require('./network/routes');
+router(app);
+
 // se corre el servidor
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);
