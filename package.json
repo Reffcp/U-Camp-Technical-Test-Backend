@@ -1,0 +1,11 @@
+{
+  "name": "u-camp-utel",
+  "version": "1.0.0",
+  "description": "🤟🏻Prueba técnica para los futuros instructores y facilitadores de U Camp 🤓💻",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "reffcp",
+  "license": "MIT"
+}
