@@ -7,15 +7,21 @@ const response = require('../../network/response');
 *  @return {Object} response
 */
 const search = (req, res) => {
-    const query = req.query.query;
-    const options = {
-        'method': 'GET',
-        'url': `${process.env.API_MLIBRE}/search?q=${query}`
-    };
-    request(options, (error, resp) => {
-        if (error) throw new Error(error);
-        response.success(res, JSON.parse(resp.body), 200);
-    });
+    if (req.query.query && req.query.limit && req.query.offset) {
+        const query = req.query.query;
+        const limit = req.query.limit;
+        const offset = req.query.offset;
+        const options = {
+            'method': 'GET',
+            'url': `${process.env.API_MLIBRE}/search?q=${query}&limit=${limit}&offset=${offset}`,
+        };
+        request(options, (error, resp) => {
+            if (error) throw new Error(error);
+            response.success(res, JSON.parse(resp.body), 200);
+        });
+    } else {
+        response.error(res, 'Error en la peticion, faltan parámetros', 404);
+    }
 }
 
 module.exports = {
