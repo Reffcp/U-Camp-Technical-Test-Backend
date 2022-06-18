@@ -13,7 +13,7 @@ const search = (req, res) => {
         const offset = req.query.offset;
         const options = {
             'method': 'GET',
-            'url': `${process.env.API_MLIBRE}/search?q=${query}&limit=${limit}&offset=${offset}`,
+            'url': `${process.env.API_MLIBRE}/search?q=${query}&limit=${limit}&offset=${offset}${(req.query.item_condition) ? `&ITEM_CONDITION=${req.query.item_condition}` : ''}${(req.query.sort) ? `&sort=${req.query.sort}` : ''}`,
         };
         request(options, (error, resp) => {
             if (error) throw new Error(error);
