@@ -73,7 +73,7 @@ Esta ruta recibe un queryString con un término de búsqueda. Por ejemplo: `/api
 - Este proyecto solo se encuentra en modo desarrollo por lo que tendrás que correr
 el comando `npm run dev` para correr el proyecto con nodemon, el cual ya se encuentra en las librerías del archivo package.json
 
-- o si lo deséas puedes probarla desde mi servidor haciendo click [acá](https://api-utel.reffcp.link/api/search?query=iphone%2012%20pro).
+- o si lo deséas puedes probarla desde mi servidor haciendo click [acá](https://api-utel.reffcp.link/api/search?query=iphone&limit=30&offset=0&item_condition=2230284&sort=price_desc).
 
 ## Extra-Credit: 
 - Se crea un caché en cada busqueda, de tal manera que a la siguiente búsqueda no se use la API de Mercado Libre si esta es repetida o tiene los mismos elementos, si no que los datos se recuperen del caché.
